@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <title>Product Cart with Promo Code</title>
+</head>
+<style>
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popup-content {
+        background-color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .popup button {
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1>Product Cart</h1>
+                <div class="products">
+                    <div class="product">
+                        <h3>Product 1</h3>
+                        <p>Price: $10</p>
+                        <button class="btn btn-primary" onclick="addToCart('Product 1', 10)">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <h3>Product 2</h3>
+                        <p>Price: $20</p>
+                        <button class="btn btn-primary" onclick="addToCart('Product 2', 20)">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <h3>Product 3</h3>
+                        <p>Price: $15</p>
+                        <button class="btn btn-primary" onclick="addToCart('Product 3', 15)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="promo-code mt-3">
+                    <h2>Promo Code</h2>
+                    <input type="text" class="form-control" id="promo-code" placeholder="Enter promo code">
+                    <button class="btn btn-primary mt-2" id="apply-promo" onclick="applyPromoCode()">Apply</button>
+                </div>
+                <div class="buy-section mt-4">
+                    <h2>Buy Section</h2>
+                    <ul id="cart-list"></ul>
+                    <p>Total Price Before Discount: <span id="total-price">$0</span></p>
+                    <p>Total Discount: <span id="total-discount">$0</span></p>
+                    <p>Total Price After Discount: <span id="total-price-after-discount">$0</span></p>
+                    <button class="btn btn-success" id="buy-button" onclick="buyProducts()">Buy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="success-popup">
+        <div class="popup-content">
+            <h2>Thank you for your purchase!</h2>
+            <p>Your order has been placed successfully.</p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+        <script src="script.js"></script>
+</body>
+
+</html>
